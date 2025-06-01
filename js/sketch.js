@@ -4,12 +4,22 @@
 // 🤟(ILoveYou)
 function getCode(left_gesture, right_gesture) {
   let code_array = {
-    "Thumb_Up": 1,
-    "Thumb_Down": 2,
-    "Victory": 3,
-    "Pointing_Up": 4,
-    "Closed_Fist": 5,
-    "Open_Palm": 6,
+    "DO": 91,
+    "RESO": 92,
+    "MIRA": 93,
+    "RESO2": 95,
+
+    "OneUp": 11,
+    "OneDown": 12,
+    "TwoUp": 21,
+    "TwoDown": 22,
+    "ThreeUp": 31,
+    "ThreeDown": 32,
+    "FourUp": 41,
+    "FA_FourDown": 42,
+
+    "Close": 6,
+    "Little": 7,
   }
   let left_code = code_array[left_gesture];
   let right_code = code_array[right_gesture];
@@ -20,11 +30,11 @@ function getCode(left_gesture, right_gesture) {
 
 function getCharacter(code) {
   const codeToChar = {
-    "11": "a", "12": "b", "13": "c", "14": "d", "15": "e", "16": "f",
-    "21": "g", "22": "h", "23": "i", "24": "j", "25": "k", "26": "l",
-    "31": "m", "32": "n", "33": "o", "34": "p", "35": "q", "36": "r",
-    "41": "s", "42": "t", "43": "u", "44": "v", "45": "w", "46": "x",
-    "51": "y", "52": "z", "53": " ", "54": "backspace"
+    "1191": "a", "1291": "b", "1192": "c", "1292": "d", "1193": "e", "1293": "f", "1195": "g",
+    "2142": "h", "2242": "i", "2193": "j", "2293": "k", "2192": "l","2292": "m", "2191": "n",
+    "3192": "o", "3292": "p", "3142": "q", "3242": "r","3193": "s", "3293": "t", "3195": "u",
+    "4192": "v", "4292": "w", "4142": "x", "4242": "y", "4193": "z",
+    "66": " ", "77": "backspace"
   };
   return codeToChar[code] || "";
 }
@@ -83,7 +93,7 @@ function setup() {
 
       let now = millis();
       if (c === lastChar) {
-        if (now - lastCharTime > 1000) {
+        if (now - lastCharTime > 450) {
           // 1秒以上cが同じ値である場合の処理
           typeChar(c);
           lastCharTime = now;
